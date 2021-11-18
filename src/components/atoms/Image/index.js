@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 function ResponsiveImage(props) {
   const {children} = props;
   return (
-    <Image {...props}>
+    <Image preview={false} {...props}>
       {children}
     </Image>
   );
