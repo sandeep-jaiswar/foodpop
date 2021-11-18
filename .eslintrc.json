@@ -19,6 +19,7 @@
     "indent": ["error", 2, { "SwitchCase": 1 }],
     "quotes": "off",
     "comma-dangle": [2, "always-multiline"],
-    "max-len":0
+    "max-len":0,
+    "valid-jsdoc":"off"
   }
 }

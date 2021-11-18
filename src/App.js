@@ -1,7 +1,7 @@
 import React from "react";
-import {Button} from "antd";
 import "./fonts/Gilroy/styles.css";
 import "./App.less";
+import LaunchPage from "./components/pages/Launch";
 
 /**
  * App component
@@ -10,7 +10,7 @@ import "./App.less";
 function App() {
   return (
     <div className="App">
-      <Button type="primary">Button</Button>
+      <LaunchPage/>
     </div>
   );
 }
