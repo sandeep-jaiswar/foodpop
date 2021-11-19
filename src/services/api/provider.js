@@ -1,17 +1,17 @@
-import axios from 'axios';
+import http from './httpService';
 import {handleResponse, handleError} from './response';
 
 const getAll = (url, cb) => {
-  return axios
+  return http
     .get(url)
     .then(handleResponse)
     .then((res)=>cb(res))
     .catch(handleError);
 };
 
-const getSingle = (url, cb) => {
+const get = (url, cb) => {
   console.log(url, cb);
-  return axios
+  return http
     .get(url)
     .then(handleResponse)
     .then((res)=>cb(res))
@@ -21,7 +21,7 @@ const getSingle = (url, cb) => {
 /** @param {string} url */
 /** @param {object} req */
 const post = (url, req) => {
-  return axios
+  return http
     .post(url, req)
     .then(handleResponse)
     .catch(handleError);
@@ -30,7 +30,7 @@ const post = (url, req) => {
 /** @param {string} url */
 /** @param {object} req */
 const put = (url, req) => {
-  return axios
+  return http
     .put(url, req)
     .then(handleResponse)
     .catch(handleError);
@@ -39,7 +39,7 @@ const put = (url, req) => {
 /** @param {string} url */
 /** @param {object} req */
 const patch = (url, req) => {
-  return axios
+  return http
     .patch(url, req)
     .then(handleResponse)
     .catch(handleError);
@@ -47,17 +47,19 @@ const patch = (url, req) => {
 
 /** @param {string} url */
 const remove = (url) => {
-  return axios
+  return http
     .delete(url)
     .then(handleResponse)
     .catch(handleError);
 };
 
-export default {
+const API= {
   getAll,
-  getSingle,
+  get,
   post,
   put,
   patch,
   remove,
 };
+
+export default API;

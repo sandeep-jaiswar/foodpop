@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Drawer} from 'antd';
+import {Card, Drawer} from 'antd';
 import {useDispatch} from 'react-redux';
 import {hideSlider} from '../../../store/actions/slider';
 import {
@@ -18,11 +18,11 @@ function SearchLocationDrawer() {
   const [results, setResults] = useState([]);
 
   useEffect(()=>{
-    console.log(results);
+    console.log(results?.features, 'results');
   }, [results]);
 
   const onClose = () => {
-    dispatch(hideSlider());
+    dispatch(hideSlider("SearchLocationDrawer"));
   };
 
   const drawerProps = {
@@ -43,6 +43,9 @@ function SearchLocationDrawer() {
             <div className='search_icon'><SearchOutlined /></div>
           </div>
           <div className='divider' ></div>
+          {results?.features && results.features.length > 0 && results.features.map((cur, index)=>(
+            <Card key={index}>{cur.properties.display_name}</Card>
+          ))}
         </div>
       </Drawer>
     </>

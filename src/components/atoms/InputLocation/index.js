@@ -2,7 +2,7 @@ import {Input} from "antd";
 import {useState, useEffect} from "react";
 import useDebounce from "../../../hooks/useDebounce";
 import PropTypes from "prop-types";
-import {ApiCore} from "../../../services/api/core";
+import API from "../../../services/api/provider";
 
 /**
  * Description
@@ -15,12 +15,8 @@ function InputLocation(props) {
   useEffect(
     () => {
       if (debouncedSearchTerm) {
-        new ApiCore({
-          get: true,
-          url: `https://nominatim.openstreetmap.org/search?format=geojson&limit=5&city=${debouncedSearchTerm}`,
-          cb: (results) => {
-            props.setResults(results);
-          },
+        API.get(`https://nominatim.openstreetmap.org/search?format=geojson&limit=5&city=${debouncedSearchTerm}`, (results) => {
+          props.setResults(results);
         });
       } else {
         props.setResults([]);
