@@ -11,7 +11,7 @@ import {
 
 const initialState = {
   toasts: null,
-  slider: null,
+  slider: [],
   popover: null,
   modal: null,
 };
@@ -35,15 +35,15 @@ export const configReducer = (state = initialState, action) => {
     case SHOW_SLIDER:
       return {
         ...state,
-        slider: {
-          current: payload,
+        slider: [...state.slider, {
+          id: payload,
           timestamp: Date.now(),
-        },
+        }],
       };
     case HIDE_SLIDER:
       return {
         ...state,
-        slider: null,
+        slider: state.slider.filter((ele)=>ele.id!==payload),
       };
     case SHOW_MODAL:
       return {

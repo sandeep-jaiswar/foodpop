@@ -10,9 +10,9 @@ import "./index.less";
 function ImageCarousel(props) {
   const {images} = props;
   return (
-    <Carousel autoplay>
+    <Carousel {...props} autoplay>
       {images.map((cur)=>(
-        <React.Fragment key={cur.desc}>
+        <React.Fragment key={cur.src}>
           <ResponsiveImage {...cur}>
           </ResponsiveImage>
           {cur.desc && <div className='desc'>{cur.desc}</div>}

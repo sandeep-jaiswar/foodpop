@@ -1,18 +1,29 @@
-import React from "react";
+import React, {lazy, Suspense} from "react";
 import ReactDOM from "react-dom";
 import {Provider} from "react-redux";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-import App from "./App";
+import Loader from "./components/atoms/Loader";
 import reportWebVitals from "./reportWebVitals";
 import createdStore from "./store/createstore";
+
+
+const App = lazy(()=>import('./App'));
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={createdStore()}>
       <BrowserRouter>
-        <Routes>
-          <Route path='' element={<App/>} />
-        </Routes>
+        <Suspense fallback={<Loader />}>
+          <Routes>
+            <Route
+              path=""
+              preload={() => {
+                console.log("preload");
+              }}
+              element={<App />}
+            />
+          </Routes>
+        </Suspense>
       </BrowserRouter>
     </Provider>
   </React.StrictMode>,

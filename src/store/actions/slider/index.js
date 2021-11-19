@@ -1,4 +1,4 @@
-import { HIDE_SLIDER, SHOW_SLIDER } from "../../types";
+import {HIDE_SLIDER, SHOW_SLIDER} from "../../types";
 
 export const showSlider = (input) => {
   return {
