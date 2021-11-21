@@ -19,17 +19,17 @@ function LoginDrawer() {
   const images = [
     {
       priority: 2,
-      src: "https://foodpop.s3.us-east-2.amazonaws.com/images/prawns.jpg",
+      src: "https://foodpop.s3.us-east-2.amazonaws.com/images/food1.jpeg",
       className: 'foodimg',
     },
     {
       priority: 0,
-      src: "https://foodpop.s3.us-east-2.amazonaws.com/images/pizza.jpg",
+      src: "https://foodpop.s3.us-east-2.amazonaws.com/images/food2.jpeg",
       className: 'foodimg',
     },
     {
       priority: 1,
-      src: "https://foodpop.s3.us-east-2.amazonaws.com/images/chinese.jpg",
+      src: "https://foodpop.s3.us-east-2.amazonaws.com/images/food3.jpeg",
       className: 'foodimg',
     },
   ];
@@ -40,6 +40,7 @@ function LoginDrawer() {
 
   const drawerProps = {
     width: "100vw",
+    height: "100vh",
     placement: "right",
     onClose: onClose,
     visible: true,

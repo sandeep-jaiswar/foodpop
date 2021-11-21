@@ -22,6 +22,7 @@ function SignupDrawer() {
 
   const drawerProps = {
     width: "100vw",
+    height: "100vh",
     placement: "right",
     onClose: onClose,
     visible: true,

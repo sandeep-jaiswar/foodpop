@@ -6,8 +6,8 @@ axios.interceptors.request.use(
     // Do something before request is sent
     // config.headers.Authorization = `Bearer ${your_token}`;
     // OR config.headers.common['Authorization'] = `Bearer ${your_token}`;
-    // config.baseURL = 'https://example.io/api/';
-
+    // config.baseURL = process.env.API;
+    config.headers['Access-Control-Allow-Credentials'] = true;
     return config;
   },
   function(error) {

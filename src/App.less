@@ -1,13 +1,36 @@
 @import "~antd/dist/antd.less";
 
+:root {
+  --sat: env(safe-area-inset-top);
+  --sar: env(safe-area-inset-right);
+  --sab: env(safe-area-inset-bottom);
+  --sal: env(safe-area-inset-left);
+}
+
+html{
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
 * {
   font-family: Gilroy;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .App {
   display: flex;
   position: relative;
   flex-direction: column;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
   .jumpin_text {
     font-size: 13px;
     color: #93959f;

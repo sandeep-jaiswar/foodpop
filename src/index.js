@@ -1,11 +1,11 @@
 import React, {lazy, Suspense} from "react";
 import ReactDOM from "react-dom";
 import {Provider} from "react-redux";
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import {BrowserRouter} from "react-router-dom";
 import Loader from "./components/atoms/Loader";
 import reportWebVitals from "./reportWebVitals";
 import createdStore from "./store/createstore";
-
+import 'animate.css';
 
 const App = lazy(()=>import('./App'));
 
@@ -14,15 +14,7 @@ ReactDOM.render(
     <Provider store={createdStore()}>
       <BrowserRouter>
         <Suspense fallback={<Loader />}>
-          <Routes>
-            <Route
-              path=""
-              preload={() => {
-                console.log("preload");
-              }}
-              element={<App />}
-            />
-          </Routes>
+          <App/>
         </Suspense>
       </BrowserRouter>
     </Provider>

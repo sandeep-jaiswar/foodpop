@@ -1,0 +1,22 @@
+.home_page{
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  animation: slideInRight;
+  animation-duration: 1s;
+  padding: 0 1rem;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  *{
+    padding-bottom: 1rem;
+  }
+  .restaurant_cards, .categories_cards, .popular_cards{
+    display: flex;
+    min-width: calc(100vw);
+    column-gap: 1rem;
+    .card{
+      padding: unset;
+    }
+  }
+}
