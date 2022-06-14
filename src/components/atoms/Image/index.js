@@ -2,7 +2,6 @@ import {Image} from 'antd';
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
 /**
  * Description
  * @param {any} props

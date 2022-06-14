@@ -27,30 +27,17 @@ function App() {
           }}
           element={<LaunchPage />}
         />
-        <Route
-          path="/home"
-          element={<Home />}
-        />
-        <Route
-          path="/search"
-          element={<Search />}
-        />
-        <Route
-          path="/account"
-          element={<Account />}
-        />
-        <Route
-          path="/cart"
-          element={<Cart />}
-        />
+        <Route path="/home" element={<Home />} />
+        <Route path="/search" element={<Search />} />
+        <Route path="/account" element={<Account />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
-      {window.location.pathname!=='/' && <MobileFooter/>}
-      {slider && slider.map((cur)=>{
-        const Component = SliderHoc[cur.id];
-        return (
-          <Component key={cur.id} />
-        );
-      })}
+      {window.location.pathname !== "/" && <MobileFooter />}
+      {slider &&
+        slider.map((cur) => {
+          const Component = SliderHoc[cur.id];
+          return <Component key={cur.id} />;
+        })}
     </div>
   );
 }

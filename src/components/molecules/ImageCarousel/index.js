@@ -8,14 +8,13 @@ import "./index.less";
  * @return {any}
  */
 function ImageCarousel(props) {
-  const {images} = props;
+  const {images, styles={}} = props;
   return (
     <Carousel {...props} autoplay>
-      {images.map((cur)=>(
+      {images.map((cur) => (
         <React.Fragment key={cur.src}>
-          <ResponsiveImage {...cur}>
-          </ResponsiveImage>
-          {cur.desc && <div className='desc'>{cur.desc}</div>}
+          <ResponsiveImage {...styles} {...cur}></ResponsiveImage>
+          {cur.desc && <div className="desc">{cur.desc}</div>}
         </React.Fragment>
       ))}
     </Carousel>
@@ -24,6 +23,7 @@ function ImageCarousel(props) {
 
 ImageCarousel.propTypes = {
   images: PropTypes.arrayOf(PropTypes.object),
+  styles: PropTypes.object,
 };
 
 export default ImageCarousel;
